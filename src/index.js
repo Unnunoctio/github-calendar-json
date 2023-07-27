@@ -3,16 +3,16 @@
  *
  * @returns {Promise<Object>} An object containing:
  *
- *  - `contributions` (Number): The number of contributions in the last year.
- *  - `lastUpdate` (Date): The date of the last contribution.
- *  - `days` (Array<Object>): An array of day objects ordered by date:
- *      - `date` (Date): The date of the day.
- *      - `contributions` (Number): The number of contributions.
- *      - `level` (Number): A number between 0 and 4, representing the level of the day.
- *  - `weeks` (Array<Object>): The day objects grouped by weeks.
- *  - `calendar` (Array<Object>): The day objects grouped as GitHub calendar.
+ *  - `contributions` {Number}          The number of contributions in the last year.
+ *  - `lastUpdate`    {Date}            The date of the last contribution.
+ *  - `days`          {Array<Object>}   An array of day objects ordered by date:
+ *      - `date`          {Date}            The date of the day.
+ *      - `contributions` {Number}          The number of contributions.
+ *      - `level`         {Number}          A number between 0 and 4, representing the level of the day.
+ *  - `weeks`         {Array<Object>}  The day objects grouped by weeks.
+ *  - `calendar`      {Array<Object>}  The day objects grouped as GitHub calendar.
  */
-export async function githubContributions (username) {
+async function githubContributions (username) {
   const data = {
     contributions: 0,
     lastUpdate: null,
@@ -84,4 +84,8 @@ export async function githubContributions (username) {
   data.lastUpdate = lastContributionDay ? lastContributionDay.date : null
 
   return data
+}
+
+module.exports = {
+  githubContributions
 }

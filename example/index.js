@@ -1,4 +1,4 @@
-import { githubContributions } from '../src/index.js'
+const { githubContributions } = require('../src/index')
 
 githubContributions('Unnunoctio')
   .then(data => {
