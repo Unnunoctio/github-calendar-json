@@ -1,0 +1,25 @@
+{
+  "name": "github-calendar-json",
+  "version": "1.0.0",
+  "description": "Transform the GitHub contributions calendar into a JSON format.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Unnunoctio/github-calendar-json.git"
+  },
+  "keywords": [
+    "github",
+    "calendar",
+    "contributions",
+    "json"
+  ],
+  "author": "Rafael Carvacho - Unnunoctio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Unnunoctio/github-calendar-json/issues"
+  },
+  "homepage": "https://github.com/Unnunoctio/github-calendar-json#readme"
+}
