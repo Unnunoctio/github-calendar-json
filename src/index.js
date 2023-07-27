@@ -80,8 +80,12 @@ async function githubContributions (username) {
   data.calendar = data.weeks[0].map((_, i) => data.weeks.map((row) => row[i]))
 
   // get last contribution
-  const lastContributionDay = data.days.reverse().find(day => day.contributions > 0)
-  data.lastUpdate = lastContributionDay ? lastContributionDay.date : null
+  for (let i = data.days.length - 1; i >= 0; i--) {
+    if (data.days[i].contributions > 0) {
+      data.lastUpdate = data.days[i].date
+      break
+    }
+  }
 
   return data
 }
