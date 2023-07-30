@@ -1,7 +1,7 @@
 {
   "name": "github-calendar-json",
   "description": "Transform the GitHub contributions calendar into a JSON format.",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "main": "index.js",
   "types": "index.d.ts",
   "author": "Rafael Carvacho",
