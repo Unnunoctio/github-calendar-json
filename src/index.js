@@ -26,6 +26,8 @@ async function githubContributions (username) {
   try {
     const parseUsername = username.toLowerCase().trim()
     const response = await fetch(`https://github.com/users/${parseUsername}/contributions`)
+
+    if (!response.ok) throw new Error(response.statusText)
     calendarHtml = await response.text()
   } catch (error) {
     throw new Error(error)
