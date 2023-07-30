@@ -1,13 +1,15 @@
-# github-calendar-json
+# Github Calendar JSON
   Transform the GitHub contributions calendar into a JSON format.
 
 ## Installation 
-  ```
-  # Using npm
-  npm i github-calendar-json
 
-  # Using yarn
-  yarn add github-calendar-json
+  Using npm:
+  ```bash
+  $ npm i github-calendar-json
+  ```
+  Using yarn:
+  ```bash
+  $ yarn add github-calendar-json
   ```
 
 ## Documentation
