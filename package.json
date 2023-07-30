@@ -1,34 +1,41 @@
 {
   "name": "github-calendar-json",
-  "version": "1.0.3",
   "description": "Transform the GitHub contributions calendar into a JSON format.",
-  "main": "src/index.js",
-  "directories": {
-    "example": "example"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Rafael Carvacho - Unnunoctio",
+  "version": "1.0.3",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "author": "Rafael Carvacho",
+  "contributors": [
+    "Rafael Carvacho (https://github.com/Unnunoctio)"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Unnunoctio/github-calendar-json.git"
   },
+  "homepage": "https://github.com/Unnunoctio/github-calendar-json#readme",
   "bugs": {
     "url": "https://github.com/Unnunoctio/github-calendar-json/issues"
   },
-  "homepage": "https://github.com/Unnunoctio/github-calendar-json#readme",
   "keywords": [
     "github",
     "calendar",
     "contributions",
     "json"
   ],
+  "files": [
+    "LICENSE",
+    "README.md",
+    "index.js",
+    "index.d.ts"
+  ],
   "devDependencies": {
     "standard": "^17.1.0"
   },
   "eslintConfig": {
     "extends": "standard"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

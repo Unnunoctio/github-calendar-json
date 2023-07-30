@@ -20,8 +20,8 @@
 
   ### Return
   - **Object** an object contain:
-  - `contributions` (Number): The number of contributions in the last year.
-  - `lastUpdate` (Date): The date fo the last contribution.
+  - `totalContributions` (Number): The number of contributions in the last year.
+  - `lastContribution` (Date): The date fo the last contribution.
   - `days` (Array): An array of day objects:
     - `date` (Date): The date of the day.
     - `contributions` (Number): The number of contributions.
@@ -43,8 +43,8 @@
 
   // Response:
   // {
-  //    contributions: 280,
-  //    lastUpdate: 2023-07-28T00:00:00.000Z,
+  //    totalContributions: 280,
+  //    lastContribution: 2023-07-28T00:00:00.000Z,
   //    days: [
   //      {
   //        date: 2022-04-24T00:00:00.000Z,
