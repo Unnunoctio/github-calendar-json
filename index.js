@@ -2,6 +2,7 @@
 
 /**
  * @param {String} username The GitHub username
+ * @param {Object} [fetchOptions] Options passed to `fetch`
  *
  * @returns {Promise<Object>} An object containing:
  *
@@ -14,7 +15,7 @@
  *  - `weeks`              {Array<Object>}   The day objects grouped by weeks.
  *  - `calendar`           {Array<Object>}   The day objects grouped as GitHub calendar.
  */
-async function githubContributions (username) {
+async function githubContributions (username, fetchOptions) {
   let totalContributions = 0
   const days = []
 
@@ -22,7 +23,7 @@ async function githubContributions (username) {
 
   try {
     const parseUsername = username.toLowerCase().trim()
-    const response = await fetch(`https://github.com/users/${parseUsername}/contributions`)
+    const response = await fetch(`https://github.com/users/${parseUsername}/contributions`, fetchOptions)
 
     if (!response.ok) { throw new Error(response.statusText) }
     calendarHtml = await response.text()

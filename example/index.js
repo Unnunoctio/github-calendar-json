@@ -1,7 +1,7 @@
 // import { githubContributions } from '../src/index'
 const { githubContributions } = require('../index')
 
-githubContributions('unnunoctio')
+githubContributions('unnunoctio', { mode: 'cors', cache: 'no-cache' })
   .then(data => {
     console.log(data)
   })

@@ -12,4 +12,4 @@ export type GithubContributions = {
   calendar: Array<Array<Day | null>>
 }
 
-export function githubContributions(username: string): Promise<GithubContributions>
+export function githubContributions(username: string, fetchOptions: Object): Promise<GithubContributions>
