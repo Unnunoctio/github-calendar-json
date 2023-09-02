@@ -17,6 +17,7 @@
 
   ### Params
   - **String** `username`: The GitHub username
+  - **Object** `fetchOptions`: Options passed to `fetch`
 
   ### Return
   - **Object** an object contain:
