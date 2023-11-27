@@ -18,7 +18,6 @@
 async function githubContributions (username, fetchOptions) {
   let totalContributions = 0
   const days = []
-
   let calendarHtml
 
   try {
@@ -31,28 +30,34 @@ async function githubContributions (username, fetchOptions) {
     throw new Error(err)
   }
 
-  calendarHtml.split('\n').map(line => line.trim()).forEach(line => {
+  // html split
+  const splitHtml = calendarHtml.split('\n').map(line => line.trim()).filter(line => {
     const containsClass = /^<td.*?class="ContributionCalendar-day"/.test(line)
-    // in forEach: return is equivalent to continue
-    if (!containsClass) {
-      return
-    }
-
+    const containsTooltip = /^<tool-tip/.test(line)
+    return containsClass || containsTooltip
+  })
+  
+  // iterate in td(data-date & data-level) and tool-tip(contributions for day)
+  for (let i = 0; i < splitHtml.length; i += 2) {
+    const data = splitHtml[i]
+    const data_contribution = splitHtml[i+1]
+  
     // extract atribute data-date
-    const dateMatch = /data-date="([^"]+)"/.exec(line)
+    const dateMatch = /data-date="([^"]+)"/.exec(data)
     const date = dateMatch ? new Date(dateMatch[1]) : null
 
     // extract atribute data-level
-    const levelMatch = /data-level="([^"]+)"/.exec(line)
+    const levelMatch = /data-level="([^"]+)"/.exec(data)
     const level = levelMatch ? parseInt(levelMatch[1]) : null
-
+  
     // extract contributions
     let contributions = 0
     if (level !== null && level > 0) {
-      const contributionsMatch = /<span class="sr-only">([^<]+)<\/span>/.exec(line)
-      contributions = contributionsMatch ? parseInt(contributionsMatch[1]) : null
+      const contributionsMatch = /class="sr-only position-absolute">([^<]+)<\/tool-tip>/.exec(data_contribution)
+      contributions = contributionsMatch ? parseInt(contributionsMatch[1].split(' ')[0]) : null
     }
 
+    // generate day
     if (date !== null && level !== null && contributions !== null) {
       const day = {
         date,
@@ -62,7 +67,7 @@ async function githubContributions (username, fetchOptions) {
       days.push(day)
       if (contributions > 0) { totalContributions += contributions }
     }
-  })
+  }
 
   // sorted days by date
   days.sort((a, b) => a.date.getTime() - b.date.getTime())
